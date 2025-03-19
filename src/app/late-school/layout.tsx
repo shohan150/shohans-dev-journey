@@ -3,10 +3,17 @@ import React, { useState } from "react";
 import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import Sidebar from "../../components/common/menu/Sidebar";
 import TopNavbar from "../../components/common/menu/TopNavbar";
+import useLocalStorageState from "../../hooks/useLocalStorageState.js";
+
+// ----------------------------------------------------------------
+
+// etar nam hboe [chosen-tech]; dynamic value. setar vitor thakbe [postId]. tahole sekhane docs er index theke oi tech niye, oi tech er index theke sob post er modde theke jei post er sathe id match korbe, shei post er component k dekhbo.
+
+// ----------------------------------------------------------------
 
 const Test: React.FC = ({ children }) => {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [isFullView, setIsFullView] = useState(false);
+  const [isFullView, setIsFullView] = useLocalStorageState("isFullView", false);
 
   //   //take at the top of the page whenever route is changed.
   //   const pathname = usePathname();
@@ -45,7 +52,9 @@ const Test: React.FC = ({ children }) => {
         </div>
       </div>
       <button
-        className="fixed bottom-4 right-6 z-30 bg-primary text-2xl rounded-full p-1 text-white"
+        className={`fixed bottom-4 ${
+          isFullView ? "right-4" : "right-8"
+        } z-30 bg-primary text-2xl rounded-full p-1 text-white`}
         onClick={() => setIsFullView(!isFullView)}
         title="Toggle Full Screen"
       >
