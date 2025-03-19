@@ -9,7 +9,7 @@ const NavMenu: React.FC = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className="md:px-6 lg:px-8 xl:px-12 px-4  relative">
+    <div className="md:px-6 lg:px-8 xl:px-12 px-4 bg-white relative">
       {/* small screen hamburger icon */}
       <button className="py-3 w-full flex justify-end lg:hidden">
         <HiOutlineMenuAlt3
