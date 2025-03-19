@@ -1,20 +1,19 @@
 "use client";
-import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/common/menu/Sidebar";
 import TopNavbar from "../../components/common/menu/TopNavbar";
 
 const Test: React.FC = ({ children }) => {
   const [showSidebar, setShowSidebar] = useState(false);
 
-  //take at the top of the page whenever route is changed.
-  const pathname = usePathname();
+  //   //take at the top of the page whenever route is changed.
+  //   const pathname = usePathname();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    //also close sidebar on mobile on route change.
-    setShowSidebar(false);
-  }, [pathname]);
+  //   useEffect(() => {
+  //     window.scrollTo(0, 0);
+  //     //also close sidebar on mobile on route change.
+  //     setShowSidebar(false);
+  //   }, [pathname]);
 
   return (
     // sidebar and topNavbar common in all pages

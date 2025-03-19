@@ -1,15 +1,13 @@
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { FaAngleDown } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom";
 import DropDown from "./DropDown";
 import Icons from "./Icons";
 
 export default function SidebarMenuItem({ item, itemId, setItemId }) {
   const [isOpen, setIsOpen] = useState(false);
   const [ddId, setDDId] = useState(null);
-
-  const {t} = useTranslation();
 
   //only one dropdown open at a time
   isOpen && item.id !== itemId && setIsOpen(false);
@@ -19,14 +17,14 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
     setItemId(item.id);
   }
   // if the item has a DropDown, means no link attached than keep the current link
-  const currentPath = useLocation();
+  const currentPath = usePathname();
   return (
     <li
       className={`leading-10 group/main text-[#ffffff85] hover:text-[#ffffffab] hover:bg-[#00000010] duration-200 relative ${
         isOpen && "bg-[#00000010] text-[#b4a0d2]"
       }`}
     >
-      <Link to={item?.link ? item.link : currentPath}>
+      <Link href={item?.link ? item.link : currentPath}>
         <div className="flex gap-2 items-center px-6" onClick={handleMenuClick}>
           <Icons name={item.icon} />
           <h4
@@ -34,7 +32,7 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
               isOpen && "text-[#fff]"
             }`}
           >
-            {t(item.title)}
+            {item.title}
           </h4>
           {item?.children && (
             <FaAngleDown

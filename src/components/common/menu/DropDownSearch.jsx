@@ -1,25 +1,22 @@
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { FaAngleDown } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom";
 
 export default function DropDownSearch({ data, searchTerm }) {
   const [isOpen, setIsOpen] = useState(true);
-
-  const {t} = useTranslation();
-
 
   function handleMenuClick() {
     setIsOpen((state) => !state);
   }
 
-  const currentPath = useLocation();
+  const currentPath = usePathname();
 
   let show = structuredClone(data);
 
   if(show.children) {
     const existing = show.children.filter((child) => {
-      const doesExist = t(child.title).toLowerCase().includes(searchTerm.toLowerCase());
+      const doesExist = child.title.toLowerCase().includes(searchTerm.toLowerCase());
 
       if (doesExist) return true;
 
@@ -35,7 +32,7 @@ export default function DropDownSearch({ data, searchTerm }) {
         isOpen && show?.children && "bg-[#00000010]"
       }`}
     >
-      <Link to={show?.link ? show.link : currentPath}>
+      <Link href={show?.link ? show.link : currentPath}>
         <div
           className="flex items-center gap-2 pl-12 pr-6 hover:bg-[#00000010] hover:text-white"
           onClick={handleMenuClick}
@@ -46,7 +43,7 @@ export default function DropDownSearch({ data, searchTerm }) {
             }`}
           ></span>
           <h5 className={`flex-1 ${isOpen && show?.children && "text-white"}`}>
-            {t(data.title)}
+            {data.title}
           </h5>
           {show?.children && (
             <FaAngleDown
@@ -59,9 +56,9 @@ export default function DropDownSearch({ data, searchTerm }) {
         {isOpen && show?.children && (
           <ul className="py-2">
             {show.children.map((innerDD) => (
-              <Link to={innerDD.link} key={innerDD.id}>
+              <Link href={innerDD.link} key={innerDD.id}>
                 <li className="hover:bg-[#00000010] hover:text-white duration-200 pl-12 pr-6">
-                  {t(innerDD.title)}
+                  {innerDD.title}
                 </li>
               </Link>
             ))}

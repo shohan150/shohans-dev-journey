@@ -1,21 +1,19 @@
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { FaAngleDown } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom";
 import DropDownSearch from "./DropDownSearch";
 import Icons from "./Icons";
 
 export default function SidebarSearchMenuItem({ item, searchTerm }) {
   const [isOpen, setIsOpen] = useState(true);
 
-  const { t } = useTranslation();
-
   function handleMenuClick() {
     setIsOpen((state) => !state);
   }
 
   // if the item has a DropDown, means no link attached than keep the current link
-  const currentPath = useLocation();
+  const currentPath = usePathname();
 
   //here starts the searching code
   const show = structuredClone(item);
@@ -71,7 +69,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
         isOpen && "bg-[#00000010] text-[#b4a0d2]"
       }`}
     >
-      <Link to={show?.link ? show.link : currentPath}>
+      <Link href={show?.link ? show.link : currentPath}>
         <div className="flex gap-2 items-center px-6" onClick={handleMenuClick}>
           <Icons name={show.icon} />
           <h4
@@ -79,7 +77,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
               isOpen && "text-[#fff]"
             }`}
           >
-            {t(show.title)}
+            {show.title}
           </h4>
           {show?.children && (
             <FaAngleDown

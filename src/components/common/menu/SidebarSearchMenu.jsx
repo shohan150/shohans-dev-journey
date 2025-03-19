@@ -1,4 +1,4 @@
-import mainMenu from "../../data/mainMenu";
+import mainMenu from "../../../data/mainMenu.js";
 import SidebarSearchMenuItem from "./SidebarSearchMenuItem";
 
 export default function SidebarSearchMenu({ searchTerm }) {
