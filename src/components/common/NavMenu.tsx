@@ -9,11 +9,11 @@ const NavMenu: React.FC = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className="md:px-6 lg:px-8 xl:px-12 px-4 bg-white relative">
+    <div className="md:px-6 lg:px-8 xl:px-10 px-4 bg-white relative">
       {/* small screen hamburger icon */}
-      <button className="py-3 w-full flex justify-end lg:hidden">
+      <button className="py-[6px] w-full flex justify-end lg:hidden">
         <HiOutlineMenuAlt3
-          className="text-3xl text-primary pointer"
+          className="text-2xl text-primary pointer"
           onClick={() => {
             setShowNav((state) => !state);
           }}
@@ -21,7 +21,7 @@ const NavMenu: React.FC = () => {
       </button>
 
       {/* large screen menu */}
-      <ul className="text-primary text-sm text-md xl:text-lg font-semibold gap-1 hidden lg:flex items-center">
+      <ul className="text-primary text-sm text-md xl:text-md font-semibold gap-1 hidden lg:flex items-center">
         {menuData.map((menuItem, index) => (
           <LargeMenu key={index} menuItem={menuItem} />
         ))}
@@ -29,7 +29,7 @@ const NavMenu: React.FC = () => {
 
       {/* small screen menu */}
       <ul
-        className={`text-primary text-md font-semibold items-end flex-col mt-2 px-2 py-4 absolute w-80 bg-white z-10 right-4 rounded-md ${
+        className={`text-primary text-sm font-semibold items-end flex-col mt-2 px-2 py-4 absolute w-80 bg-white z-10 right-4 rounded-md ${
           showNav ? "flex" : "hidden"
         } lg:hidden `}
       >

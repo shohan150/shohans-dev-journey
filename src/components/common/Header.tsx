@@ -4,7 +4,7 @@ import NavMenu from "./NavMenu";
 
 const Header: React.FC = () => {
   return (
-    <div className="py-4 bg-gradient-to-r from-primary to-secondary">
+    <div className="pb-0 bg-gradient-to-r from-primary to-secondary">
       <Intro />
       <NavMenu />
     </div>

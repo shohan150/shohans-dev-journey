@@ -4,7 +4,7 @@ import SidebarHeader from "./SidebarHeader";
 import SidebarMenu from "./SidebarMenu";
 import SidebarSearchMenu from "./SidebarSearchMenu";
 
-export default function Sidebar({ showSidebar, setShowSidebar }) {
+export default function Sidebar({ showSidebar, setShowSidebar, isFullView }) {
 
   const sidebarRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,7 +27,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       <nav
         ref={sidebarRef}
         id="sidebar-menu"
-        className={`fixed transition-all duration-300 ease-in-out h-screen bg-primary bg-[linear-gradient(270deg,rgba(51,148,225,0.18),transparent)] shadow-sm  w-0 xl:w-72 scrollbar ${showSidebar && "w-72"} z-20`}
+        className={`transition-all duration-300 ease-in-out ${isFullView ? 'min-h-full' : 'h-[calc(100vh-76px)] xl:h-[calc(100vh-84px)]'} bg-primary bg-[linear-gradient(270deg,rgba(51,148,225,0.18),transparent)] shadow-sm  w-0 xl:w-72 scrollbar ${showSidebar && "w-72"} z-20`}
       >
         <div className="h-full overflow-y-auto relative scrollbar-webkit">
           <SidebarHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />

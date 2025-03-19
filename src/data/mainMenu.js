@@ -360,7 +360,7 @@ const mainMenu = [
          children: [
            {
              id: "17/07/01",
-             title: "fees.collection.quickCollection",
+             title: "fees .collection. quickCollection dsfd dff sdfsdf",
              link: "fees/collection/quick-collection",
            },
            {

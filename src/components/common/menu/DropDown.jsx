@@ -45,7 +45,7 @@ export default function DropDown({ data, ddId, setDDId }) {
           <ul className="py-2">
             {data.children.map((innerDD) => (
               <Link href={innerDD.link} key={innerDD.id}>
-                <li className="hover:bg-[#00000010] hover:text-white duration-200 pl-12 pr-6">
+                <li className="hover:bg-[#00000010] hover:text-white duration-200 pl-12 pr-6 py-1 text-sm leading-5">
                   {innerDD.title}
                 </li>
               </Link>

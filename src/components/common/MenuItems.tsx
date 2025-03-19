@@ -8,7 +8,7 @@ const LargeMenu: React.FC = ({ menuItem }) => {
     // main list item. Show Link or span.
     <li
       className={
-        "rounded-md group text-primary mx-1 my-2 px-1 xl:px-2 py-2 xl:py-3 hover:bg-primarylight hover:text-textColor relative cursor-pointer"
+        "rounded-md group text-primary mx-1 my-1 px-1 xl:px-2 py-1 xl:py-2 hover:bg-primarylight hover:text-textColor relative cursor-pointer"
       }
     >
       {menuItem.link ? (
@@ -27,13 +27,13 @@ const LargeMenu: React.FC = ({ menuItem }) => {
       {menuItem.children && (
         <ul
           className={
-            "hidden group-hover:block absolute left-0 top-10 xl:top-[51px] bg-white z-10 w-44 xl:w-56 divide-y-2 text-start"
+            "hidden group-hover:block absolute left-0 top-7 xl:top-[35px] bg-white z-10 w-44 xl:w-56 divide-y-2 text-start"
           }
         >
           {menuItem.children.map((dropdown, index) => (
             <li
               key={index}
-              className={`px-2 xl:px-4 py-3 bg-white text-primary hover:bg-primarylight hover:text-textColor group/dropdown relative ${
+              className={`px-2 xl:px-3 py-2 bg-white text-primary hover:bg-primarylight hover:text-textColor group/dropdown relative ${
                 dropdown.children && "flex justify-between items-center"
               }`}
             >
@@ -53,7 +53,7 @@ const LargeMenu: React.FC = ({ menuItem }) => {
                   {dropdown.children.map((level2, index) => (
                     <li
                       key={index}
-                      className="p-3 bg-white text-primary hover:bg-primarylight hover:text-textColor"
+                      className="p-2 bg-white text-primary hover:bg-primarylight hover:text-textColor"
                     >
                       <Link href={level2.link}>{level2.title}</Link>
                     </li>
@@ -72,7 +72,7 @@ const HamburgerMenu: React.FC = ({ menuItem, setShowNav }) => {
   return (
     <li
       className={
-        "rounded-md group w-full text-primary text-start pl-4 py-3 hover:bg-primarylight hover:text-textColor"
+        "rounded-md group w-full text-primary text-start pl-4 py-2 hover:bg-primarylight hover:text-textColor"
       }
     >
       {menuItem.link ? (
@@ -98,7 +98,7 @@ const HamburgerMenu: React.FC = ({ menuItem, setShowNav }) => {
           {menuItem.children.map((dropdown, index) => (
             <li
               key={index}
-              className="pl-4 py-3 rounded-md hover:bg-primarylight hover:text-textColor group/item"
+              className="pl-4 py-1 rounded-md hover:bg-primarylight hover:text-textColor group/item"
             >
               {dropdown.link ? (
                 <Link
@@ -120,7 +120,7 @@ const HamburgerMenu: React.FC = ({ menuItem, setShowNav }) => {
               {dropdown.children && (
                 <ul className="mt-2 hidden group-hover/item:block">
                   {dropdown.children.map((level2, index) => (
-                    <li key={index} className="pl-6 py-3 rounded-sm">
+                    <li key={index} className="pl-6 py-1 rounded-sm">
                       <Link
                         href={level2.link}
                         onClick={() => {

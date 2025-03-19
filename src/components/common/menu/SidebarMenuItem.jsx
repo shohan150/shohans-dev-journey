@@ -43,7 +43,7 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
           )}
         </div>
         {isOpen && item?.children && (
-          <ul className="py-2 before:content-[''] before:block before:absolute before:z-1 before:left-[30px] before:top-10 before:bottom-0 before:border-l before:border-solid before:border-[#ffffff35]">
+          <ul className="py-2 before:content-[''] before:block before:absolute before:z-1 before:left-[30px] before:top-10 before:bottom-0 before:border-l before:border-solid before:border-[#ffffff35] text-[15px] leading-10">
             {item.children.map((dropdown) => (
               <DropDown
                 key={dropdown.id}

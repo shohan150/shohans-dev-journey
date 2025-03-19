@@ -19,7 +19,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
   const show = structuredClone(item);
 
   //if in title, show the item fully. Means keep the variable show as it is.
-  const existInTitle = t(item.title)
+  const existInTitle = item.title
     .toLowerCase()
     .includes(searchTerm.toLowerCase());
 
@@ -31,7 +31,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
     //Case 2 : if item has children (1st level), show as opened
     if (item.children) {
       const existing = item.children.filter((child) => {
-        const doesExist = t(child.title)
+        const doesExist = child.title
           .toLowerCase()
           .includes(searchTerm.toLowerCase());
 
@@ -40,7 +40,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
         // Case 3: if item has children (2nd level), search on that
         if (child.children) {
           const existing2 = child.children?.filter((childL2) => {
-            const doesExist2 = t(childL2.title)
+            const doesExist2 = childL2.title
               .toLowerCase()
               .includes(searchTerm.toLowerCase());
 
